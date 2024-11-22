@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 namespace :db do
   desc 'Run migrations'
   task :migrate, [:version] do |_t, args|
@@ -12,7 +14,7 @@ namespace :db do
       host: ENV['DB_HOST'],
       port: ENV['DB_PORT'],
       database: ENV['DB_NAME'],
-      max_connections: 10,
+      max_connections: 10
     ) do |db|
       Sequel::Migrator.run(db, 'db/migrations', target: version)
     end
