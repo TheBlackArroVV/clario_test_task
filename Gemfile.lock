@@ -11,6 +11,7 @@ GEM
       ast (~> 2.4.1)
       racc
     pg (1.5.9)
+    que (2.4.1)
     racc (1.8.1)
     rainbow (3.1.1)
     rake (13.2.1)
@@ -51,6 +52,7 @@ PLATFORMS
 
 DEPENDENCIES
   pg
+  que
   rake
   rspec
   rubocop

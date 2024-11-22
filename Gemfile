@@ -3,6 +3,7 @@
 source 'https://rubygems.org'
 
 gem 'pg'
+gem 'que'
 gem 'rake'
 gem 'rspec'
 gem 'rubocop'

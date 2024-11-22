@@ -18,17 +18,10 @@
 RSpec.configure do |config|
   require_relative '../services/rebilling_service'
   require_relative '../jobs/rebilling_job'
+  require_relative '../db/database'
 
   # Set Que's connection to the Sequel database
-  Que.connection = Sequel.connect(
-    adapter: :postgres,
-    user: ENV.fetch('DB_USER', nil),
-    password: ENV.fetch('DB_PASSWORD', nil),
-    host: ENV.fetch('DB_HOST', nil),
-    port: ENV.fetch('DB_PORT', nil),
-    database: ENV.fetch('DB_NAME', nil),
-    max_connections: 10
-  )
+  Que.connection = Database.instance.db
 
   # rspec-expectations config goes here. You can use an alternate
   # assertion/expectation library such as wrong or the stdlib/minitest
