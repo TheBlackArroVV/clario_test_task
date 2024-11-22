@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 require_relative '../db/database'
+require 'que/sequel/model'
 
-class PaymentLog < Sequel::Model
+class QueJob < Que::Sequel::Model
 end
