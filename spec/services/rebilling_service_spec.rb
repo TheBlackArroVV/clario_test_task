@@ -28,15 +28,15 @@ RSpec.describe RebillingService do
       end
     end
 
-    context 'when payment gatewy returns insuficient_funds status' do
-      let(:gateway_result) { PaymentGateway::RESULT.new(:insuficient_funds, {}) }
+    context 'when payment gatewy returns insufficient_funds status' do
+      let(:gateway_result) { PaymentGateway::RESULT.new(:insufficient_funds, {}) }
 
-      it 'creates payment log with insuficient_funds status' do
+      it 'creates payment log with insufficient_funds status' do
         expect(PaymentLog).to receive(:create).with(
-          subscription_id:, charged_amount:, status: :insuficient_funds, created_at: utc_time
+          subscription_id:, charged_amount:, status: :insufficient_funds, created_at: utc_time
         ).and_call_original
 
-        expect(service.call).to eq(described_class::RESULT.new(:insuficient_funds, { payment_log: PaymentLog.last }))
+        expect(service.call).to eq(described_class::RESULT.new(:insufficient_funds, { payment_log: PaymentLog.last }))
         expect(service.result).to be_instance_of(described_class::RESULT)
       end
     end

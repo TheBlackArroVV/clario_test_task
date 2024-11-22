@@ -10,7 +10,7 @@ RSpec.describe PaymentGateway do
     it 'returns one of the possible results' do
       # nothing much to test here as we only return random value, but if somebody will start returning wrong value
       # we will catch it here(eventually)
-      expect(%i[success insuficient_funds failed]).to include(gateway.call.status)
+      expect(%i[success insufficient_funds failed]).to include(gateway.call.status)
       expect(gateway.result).to be_instance_of(PaymentGateway::RESULT)
     end
   end

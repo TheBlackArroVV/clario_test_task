@@ -3,9 +3,9 @@ class BaseService
 
   attr_reader :result
 
-  def initialize(subscription_id, charged_amount)
+  def initialize(subscription_id, amount_to_charge)
     @subscription_id = subscription_id
-    @charged_amount = charged_amount
+    @amount_to_charge = amount_to_charge
     @result = nil
   end
 end

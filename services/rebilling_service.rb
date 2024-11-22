@@ -14,10 +14,10 @@ class RebillingService < BaseService # :nodoc:
 
   private
 
-  attr_reader :subscription_id, :charged_amount
+  attr_reader :subscription_id, :amount_to_charge
 
   def payment_gateway
-    @payment_gateway ||= PaymentGateway.new(subscription_id, charged_amount)
+    @payment_gateway ||= PaymentGateway.new(subscription_id, amount_to_charge)
   end
 
   def payment_gateway_status
@@ -26,7 +26,7 @@ class RebillingService < BaseService # :nodoc:
 
   def create_payment_log
     @payment_log = PaymentLog.create(
-      charged_amount:,
+      charged_amount: amount_to_charge,
       subscription_id:,
       created_at: Time.now.utc,
       status: payment_gateway_status
