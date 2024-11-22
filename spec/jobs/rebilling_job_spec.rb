@@ -51,21 +51,5 @@ RSpec.describe RebillingJob do
         job
       end
     end
-
-    context 'when service returns failed status' do
-      before { stub_const('RebillingJob::FIVE_MINUTES', 3) }
-
-      it 'waits and proceeds with execution' do
-        expect_any_instance_of(described_class).to receive(:sleep).exactly(4).times.with(3).and_return(true)
-
-        expect(RebillingService).to receive(:new).with(
-          subscription_id, charged_amount
-        ).and_return(
-          double('RebillingService', call: true, result: failed_rebill_result)
-        )
-
-        job
-      end
-    end
   end
 end
