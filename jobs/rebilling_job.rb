@@ -36,7 +36,6 @@ class RebillingJob < Que::Job
         @rebilling_service = nil
       when :failed
         sleep(FIVE_MINUTES)
-        @tries += 1
       end
     end
 
