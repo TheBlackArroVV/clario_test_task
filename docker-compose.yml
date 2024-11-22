@@ -1,0 +1,16 @@
+services:
+  postgresql:
+    container_name: "clario_test_task_postgres"
+    image: postgres
+    shm_size: 1g
+    environment:
+      POSTGRES_USER: ${DB_USER}
+      POSTGRES_PASSWORD: ${DB_PASSWORD}
+      POSTGRES_DB: ${DB_NAME}
+    ports:
+      - ${DB_PORT}:${DB_PORT}
+    volumes:
+      - pgdata:/data/postgresql/data
+
+volumes:
+  pgdata:
