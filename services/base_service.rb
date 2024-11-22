@@ -1,3 +1,6 @@
+# frozen_string_literal: true
+
+# Class with common service methods
 class BaseService
   RESULT = Struct.new(:status, :response_body)
 

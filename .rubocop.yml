@@ -1,0 +1,7 @@
+Metrics/BlockLength:
+  Enabled: true
+  Exclude:
+    - 'spec/**/*'
+
+AllCops:
+  NewCops: enable
